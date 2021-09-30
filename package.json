@@ -1,0 +1,120 @@
+{
+  "name": "react-ts-jit-starter",
+  "version": "1.0.0",
+  "description": "Semi-opinionated React + Vite template with Tailwind JIT and lint-on-commit.",
+  "main": "index.js",
+  "repository": "@TODO",
+  "author": "Samuel Dale <smhdale@live.com.au>",
+  "license": "Unlicense",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "lint:ts": "eslint ./src/**/*.{ts,tsx} --fix",
+    "lint:css": "stylelint ./src/**/*.css --fix",
+    "format": "prettier --write ./*.config.js ./src/**/*.{ts,tsx,css}",
+    "pre-commit": "lint-staged"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.1.8",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.0",
+    "@vitejs/plugin-react": "^1.0.1",
+    "autoprefixer": "^10.3.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-tailwind": "^0.2.1",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
+    "stylelint": "^13.13.1",
+    "tailwindcss": "^2.2.7",
+    "typescript": "^4.3.5",
+    "vite": "^2.4.4",
+    "vite-react-jsx": "^1.1.2"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:tailwind/recommended",
+      "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "@typescript-eslint",
+      "simple-import-sort"
+    ],
+    "rules": {
+      "react/prop-types": "off",
+      "simple-import-sort/imports": "error"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "useTabs": true
+  },
+  "stylelint": {
+    "rules": {
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "tailwind",
+            "apply",
+            "layer",
+            "variants",
+            "responsive",
+            "screen"
+          ]
+        }
+      ],
+      "declaration-block-trailing-semicolon": null,
+      "no-descending-specificity": null
+    }
+  },
+  "lint-staged": {
+    "./*.config.js": [
+      "prettier --write"
+    ],
+    "./src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "./src/**/*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ]
+  }
+}
